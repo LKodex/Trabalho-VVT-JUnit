@@ -27,4 +27,27 @@ public class UpperLowerNotSameTest {
             lowercase   // actual       -   "hello, world!"
         );
     }
+
+    @Test
+    public void upperStringCopyWithSameContent() {
+        CustomString helloWorld = new CustomString("HELLO, world!");
+        CustomString uppercase = helloWorld.copyAndUpper();
+        helloWorld.toUpper();
+        assertNotSame(
+            "An object instance should not be the same as an object with equal content",
+            helloWorld, // unexpected   -   "HELLO, WORLD!"
+            uppercase   // actual       -   "HELLO, WORLD!"
+        );
+    }
+
+    @Test
+    public void lowerStringCopyWithSameContent() {
+        CustomString helloWorld = new CustomString("HELLO, world!");
+        CustomString lowercase = helloWorld.copyAndLower();
+        helloWorld.toLower();
+        assertNotSame(
+            helloWorld, // unexpected   -   "HELLO, WORLD!"
+            lowercase   // actual       -   "HELLO, WORLD!"
+        );
+    }
 }
